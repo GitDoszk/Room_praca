@@ -9,15 +9,17 @@ public class Gra {
     public int id;
     public String nazwa;
     public int cena;
-    public int iluOsobowa;
+    public int minLiczbaOsob;
+    public int maxLiczbaOsob;
     public String platforma;
     public int kategoriaWiekowa;
     public String kategoriaNazwa;
 
-    public Gra(String nazwa, int minLiczbaOsob, int maksLiczbaOsob, String platforma, int kategoriaWiekowa, String kategoriaNazwa) {
+    public Gra(String nazwa, int cena, int minLiczbaOsob, int maxLiczbaOsob, String platforma, int kategoriaWiekowa, String kategoriaNazwa) {
         this.nazwa = nazwa;
-        this.cena = minLiczbaOsob;
-        this.iluOsobowa = maksLiczbaOsob;
+        this.cena = cena;
+        this.minLiczbaOsob = minLiczbaOsob;
+        this.maxLiczbaOsob = maxLiczbaOsob;
         this.platforma = platforma;
         this.kategoriaWiekowa = kategoriaWiekowa;
         this.kategoriaNazwa = kategoriaNazwa;

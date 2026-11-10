@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +22,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        GryDataBase gryDataBase = Room.databaseBuilder(
+                        getApplicationContext(),GryDataBase.class, "gry")
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build();
+        gryDataBase.zwrocGryDao().wstawGreDoBazy(
+                new Gra("Piłka vs Piłka", 200, 1,3,  "every", 3, "Rozrywka")
+        );
     }
 }
