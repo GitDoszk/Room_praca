@@ -1,7 +1,7 @@
 package com.onaar.room_o_grach;
 
-import androidx.room3.Entity;
-import androidx.room3.PrimaryKey;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity (tableName = "gry")
 public class Gra {
@@ -21,5 +21,8 @@ public class Gra {
         this.platforma = platforma;
         this.kategoriaWiekowa = kategoriaWiekowa;
         this.kategoriaNazwa = kategoriaNazwa;
+    }
+
+    public Gra() {
     }
 }

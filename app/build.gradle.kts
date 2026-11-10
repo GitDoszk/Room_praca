@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.onaar.room_o_grach"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.onaar.room_o_grach"
