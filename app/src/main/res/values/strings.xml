@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Room_o_Grach</string>
+    <string-array name="kategorie">
+        <item>bojowe</item>
+        <item>strategiczne</item>
+        <item>hazardowe</item>
+        <item>logiczne</item>
+        <item>klasyczne</item>
+        <item>rozrywkowe</item>
+    </string-array>
 </resources>
