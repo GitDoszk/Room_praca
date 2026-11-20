@@ -2,8 +2,10 @@ package com.onaar.room_o_grach;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
@@ -14,12 +16,17 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
 
     Button buttonDodaj;
     EditText editTextNazwa, editTextCena,  editTextMin, editTextMax, editTextPlatform,   editTextWiek;
     Spinner spinnerKategoria;
+    ListView lista;
+    List<Gra> listaGier;
+    ArrayAdapter<Gra> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,5 +73,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        lista = findViewById(R.id.lista);
+        listaGier = gryDataBase.zwrocGryDao().zwrocWszystkieGry();
+        adapter = new ArrayAdapter<>(
+                MainActivity.this,
+                android.R.layout.simple_list_item_1,
+                listaGier
+        );
+        lista.setAdapter(adapter);
     }
 }
