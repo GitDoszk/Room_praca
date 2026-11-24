@@ -67,6 +67,31 @@ public class MainActivity extends AppCompatActivity {
         );
         lista.setAdapter(adapter);
 
+        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Czy na pewno chcesz usunąć tę grę?")
+                        .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Gra graDoUsuniecia = adapter.getItem(position);
+
+                                gryDataBase.zwrocGryDao().usunZBazy(graDoUsuniecia);
+
+                                listaGier.remove(position);
+                                adapter.notifyDataSetChanged();
+
+                                Toast.makeText(MainActivity.this, "Usunięto grę", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("Anuluj", null)
+                        .show();
+
+                return true;
+            }
+        });
+
         buttonDodaj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
