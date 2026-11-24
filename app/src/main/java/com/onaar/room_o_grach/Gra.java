@@ -25,6 +25,19 @@ public class Gra {
         this.kategoriaNazwa = kategoriaNazwa;
     }
 
+    @Override
+    public String toString() {
+        return
+                "nazwa='" + nazwa + '\'' +
+                ", cena=" + cena +
+                ", minLiczbaOsob=" + minLiczbaOsob +
+                ", maxLiczbaOsob=" + maxLiczbaOsob +
+                ", platforma='" + platforma +
+                ", kategoriaWiekowa=" + kategoriaWiekowa +
+                ", kategoriaNazwa='" + kategoriaNazwa;
+
+    }
+
     public Gra() {
     }
 }
